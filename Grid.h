@@ -14,10 +14,12 @@ class Grid{
         ~Grid();
         Grid(int width, int height, double populationDensity);
         void createGrid(int width, int height, double populationDensity);
-        void randomGrid(int width, int height, double populationDensity);
+        void randomGrid();
         void manuallyCreateGrid(int width, int height, double populationDensity);
         bool placeCell(double populationDensity);
+        void printArray();
     private:
+        char **grid;
         unsigned int width;
         unsigned int height;
         double populationDensity;

@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 
 
     if (input == 1){
-        test->randomGrid(width, height, populationDensity); //create a random grid
+        test->randomGrid(); //create a random grid
     }
     else if(input == 2){
         test->manuallyCreateGrid(width, height, populationDensity); //manually input information
