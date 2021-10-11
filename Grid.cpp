@@ -1,12 +1,13 @@
 #include "Grid.h"
 
-Grid::Grid(){
+Grid::Grid(){ //Constructor
+    width = -1;
+    height = -1;
+    populationDensity = -1.0;
+}
 
-    srand(time(NULL));
-    width = rand() % 10 + 1; // random width
-    height = rand() % 10 + 1; // random height
-    populationDensity = (rand() % 10 + 0) * 0.1; //random population Density
-    createGrid(width, height, populationDensity);
+Grid::~Grid(){ //Destructor
+
 }
 
 void Grid::createGrid(int width, int height, double populationDensity){
@@ -14,15 +15,33 @@ void Grid::createGrid(int width, int height, double populationDensity){
     cout << "Height: " << height << endl;
     cout << "Population Density: " << populationDensity << endl;
     cout << "Ok to place cell: " << placeCell(populationDensity) << endl; //1 means true, 0 means false.
-    // vector<vector<char>> grid (height, vector<int> (width));
-    // for(int i = 0; i < height; ++i){
-    //     for(int j = 0; j < width; ++j){
-    //         if(placeCell(populationDensity)){
-    //             grid[i][j] = 'x';
-    //         }
-    //     }
-    // }
+     /*vector<vector<char>> grid (height, vector<int> (width));
+     for(int i = 0; i < height; ++i){
+         for(int j = 0; j < width; ++j){
+             if(placeCell(populationDensity)){
+                 grid[i][j] = 'x';
+             }
+         }
+     }*/
 
+}
+
+void Grid::randomGrid(int width, int height, double populationDensity){
+    srand(time(NULL));
+    width = rand() % 10 + 1; // random width
+    height = rand() % 10 + 1; // random height
+    populationDensity = (rand() % 10 + 0) * 0.1; //random population Density
+    createGrid(width, height, populationDensity);
+}
+
+void Grid::manuallyCreateGrid(int width, int height, double populationDensity){ //method to manually input data (is this useful?)
+    cout << "Input Width: " << endl;
+    cin >> width;
+    cout << "Input Height: " << endl;
+    cin >> height;
+    cout << "Input Population Density: " << endl;
+    cin >> populationDensity;
+    createGrid(width, height, populationDensity);
 }
 
 bool Grid::placeCell(double populationDensity){

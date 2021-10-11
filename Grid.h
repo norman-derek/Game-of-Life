@@ -11,8 +11,11 @@ using namespace std;
 class Grid{
     public:
         Grid();
+        ~Grid();
         Grid(int width, int height, double populationDensity);
         void createGrid(int width, int height, double populationDensity);
+        void randomGrid(int width, int height, double populationDensity);
+        void manuallyCreateGrid(int width, int height, double populationDensity);
         bool placeCell(double populationDensity);
     private:
         unsigned int width;
