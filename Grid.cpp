@@ -15,6 +15,7 @@ void Grid::createGrid(int width, int height, double populationDensity){
     cout << "Height: " << height << endl;
     cout << "Population Density: " << populationDensity << endl;
     cout << "Ok to place cell: " << placeCell(populationDensity) << endl; //1 means true, 0 means false.
+<<<<<<< Updated upstream
      /*vector<vector<char>> grid (height, vector<int> (width));
      for(int i = 0; i < height; ++i){
          for(int j = 0; j < width; ++j){
@@ -25,6 +26,8 @@ void Grid::createGrid(int width, int height, double populationDensity){
      }*/
 
 }
+=======
+>>>>>>> Stashed changes
 
 void Grid::randomGrid(int width, int height, double populationDensity){
     srand(time(NULL));
