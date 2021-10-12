@@ -24,12 +24,12 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
         grid[i] = new char[width];
     }
 
-    for (int i = 0; i < height; ++i){
-        for (int j = 0; j < width; ++j){
-            cout << "[" << grid[i][j] << "], ";
-        }
-        cout << endl;
-    } //prepping the grid system, prings out empty grid
+    // for (int i = 0; i < height; ++i){
+    //     for (int j = 0; j < width; ++j){
+    //         cout << "[" << grid[i][j] << "], ";
+    //     }
+    //     cout << endl;
+    // } //prepping the grid system, prints out empty grid
 
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){
@@ -41,12 +41,7 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
         }
     } //populates grid randomly, 'x' = filled spot, '-' = empty spot
 
-    for (int i = 0; i < height; ++i){
-        for (int j = 0; j < width; ++j){
-            cout << "[" << grid[i][j] << "], ";
-        }
-        cout << endl;
-    } //prints out grid filled with populated spots
+    
 
 } 
 
@@ -69,5 +64,10 @@ void Grid::manuallyCreateGrid(int width, int height, double populationDensity){ 
 }
 
 void Grid::printArray(){
-
+    for (int i = 0; i < height; ++i){
+        for (int j = 0; j < width; ++j){
+            cout << "[" << grid[i][j] << "], ";
+        }
+        cout << endl;
+    } //prints out grid filled with populated spots
 }
