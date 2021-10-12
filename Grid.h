@@ -12,7 +12,7 @@ class Grid{
         Grid();
         ~Grid();
         Grid(int width, int height, double populationDensity);
-        void createGrid(int width, int height, double populationDensity);
+        char** createGrid(int width, int height, double populationDensity);
         void randomGrid();
         void manuallyCreateGrid(int width, int height, double populationDensity);
         bool placeCell(double populationDensity);
