@@ -5,7 +5,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-//#include <vector>
 using namespace std;
 
 class Grid{
