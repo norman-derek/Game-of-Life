@@ -15,7 +15,7 @@ Grid::~Grid(){ //Destructor
     delete[] grid;
 }
 
-void Grid::createGrid(int width, int height, double populationDensity){
+void Grid::createGrid(int width, int height, double populationDensity){ //method to create the grid
     cout << "Width: " << width << endl;
     cout << "Height: " << height << endl;
     cout << "Population Density: " << populationDensity << endl;
@@ -29,7 +29,7 @@ void Grid::createGrid(int width, int height, double populationDensity){
             cout << "[" << grid[i][j] << "], ";
         }
         cout << endl;
-    }
+    } //prepping the grid system, prings out empty grid
 
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){
@@ -39,16 +39,16 @@ void Grid::createGrid(int width, int height, double populationDensity){
                 grid[i][j] = '-';
             }
         }
-    }
+    } //populates grid randomly, 'x' = filled spot, '-' = empty spot
 
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){
             cout << "[" << grid[i][j] << "], ";
         }
         cout << endl;
-    }
+    } //prints out grid filled with populated spots
 
-}
+} 
 
 void Grid::randomGrid(){
     srand(time(NULL));
