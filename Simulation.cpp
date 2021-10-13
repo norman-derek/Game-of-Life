@@ -1,7 +1,7 @@
 #include "Simulation.h"
 
 Simulation::Simulation(){
-
+    Grid *test = new Grid(); //this will be classic, doughnut, or mirror, but will have access to everything that grid can access
 }
 
 Simulation::~Simulation(){
@@ -9,7 +9,7 @@ Simulation::~Simulation(){
 }
 
 void Simulation::runSimulation(){
-    Grid *test = new Grid();
+    
 
     int input;
     int width;
