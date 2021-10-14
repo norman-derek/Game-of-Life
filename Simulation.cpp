@@ -2,6 +2,10 @@
 
 Simulation::Simulation(){
     Grid *test = new Grid(); //this will be classic, doughnut, or mirror, but will have access to everything that grid can access
+    /*the reason there is one here and one in runSimulation() is because I plan on creating a virtual method that will run in 
+    the Classic, Donut, or Mirror classes, but those don't exist right now :(
+
+    */
 }
 
 Simulation::~Simulation(){
@@ -9,7 +13,7 @@ Simulation::~Simulation(){
 }
 
 void Simulation::runSimulation(){
-    
+    Grid *test = new Grid(); //this will be classic, doughnut, or mirror, but will have access to everything that grid can access
 
     int input;
     int width;
@@ -26,7 +30,7 @@ void Simulation::runSimulation(){
         test->printArray(); //prints array
     }
     else if(input == 2){
-        test->manuallyCreateGrid(width, height, populationDensity); //manually input information
+        test->manuallyCreateGrid(); //manually input information
     }
     else{
         cout << "Input the correct number, dumbass";

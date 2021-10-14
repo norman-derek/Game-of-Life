@@ -8,5 +8,5 @@ using namespace std;
 
 class Classic:public Grid{ //classic is a subclass of grid
     public:
-        void searchGrid();
+       // void searchGrid();
 }

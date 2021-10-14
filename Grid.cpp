@@ -71,7 +71,11 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
         getline(inputTextFile, temp); //reads second line and puts it to temp
         width = stoi(temp); //converts a string into an integer
 
-        grid = new char[height][width];
+        grid = new char*[height];
+        for(int i = 0; i < height; ++i){
+            grid[i] = new char[width];
+        }
+
 
         for(int i = 0; i < height; ++i){
             getline(inputTextFile, temp);
