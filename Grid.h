@@ -19,7 +19,7 @@ class Grid{
         void manuallyCreateGrid();
         bool placeCell(double populationDensity);
         void printArray();
-       // virtual void searchGrid() = 0; //this is implemented elsewhere (classic, donut, mirror)
+        virtual void searchGrid() = 0; //this is implemented elsewhere (classic, donut, mirror)
     private:
         char **grid;
         int width;

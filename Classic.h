@@ -2,11 +2,24 @@
 #define CLASSIC_H
 
 #include "Grid.h"
-#include <iostream>
 
-using namespace std;
 
-class Classic:public Grid{ //classic is a subclass of grid
+class Classic{                       //:public Grid{ //classic is a subclass of grid
+    private:
+        int h; //specific row location
+        int w; //specific column location
+        char **originalGrid; 
+        char **copyGrid; 
+
     public:
-       // void searchGrid();
-}
+        Classic();
+        ~Classic();
+
+        bool isAlive(); //check to see if a grid is alive
+        void searchGrid();
+        void alive(h, w); //add a new 'X' to a cell
+
+       
+};
+
+#endif

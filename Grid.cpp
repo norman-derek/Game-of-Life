@@ -62,7 +62,7 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
     createGrid(width, height, populationDensity);*/
 
 
-    ifstream inputTextFile;
+    ifstream inputTextFile; //you're doing great! i'm proud :D
     inputTextFile.open("input.txt", ios::out);
     if (inputTextFile.is_open()){
         string temp;
@@ -71,7 +71,7 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
         getline(inputTextFile, temp); //reads second line and puts it to temp
         width = stoi(temp); //converts a string into an integer
 
-        grid = new char*[height];
+        grid = new char* [height];
         for(int i = 0; i < height; ++i){
             grid[i] = new char[width];
         }
