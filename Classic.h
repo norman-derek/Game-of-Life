@@ -3,6 +3,7 @@
 
 #include "Grid.h"
 #include <iostream>
+#include <exception>
 
 using namespace std;
 
@@ -10,8 +11,8 @@ class Classic: public Grid {                       //:public Grid{ //classic is 
     private:
         int h; //specific row location
         int w; //specific column location
-        char **currGrid; 
-        char **prevGrid; 
+        char **currGrid;  //current grid pointer
+        char **nextGrid; //previous grid pointer
 
     public:
         Classic();
@@ -21,8 +22,8 @@ class Classic: public Grid {                       //:public Grid{ //classic is 
         void searchGrid(); //searches grid and looks for alive locations
         void alive(int h, int w); //add a new 'X' to a cell
         void dead(int h, int w); //sets a cell to dead by changing 'X' to '-'
-        void printPrevGrid();
-        void createPrevGrid();
+        void printNextGrid();
+        void createNextGrid();
 
 };
 

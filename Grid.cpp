@@ -54,9 +54,9 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
     if (inputTextFile.is_open()){
         string temp;
         getline(inputTextFile, temp); //reads first line and puts it to temp
-        height = stoi(temp); //converts a string into an integer
+        this->height = stoi(temp); //converts a string into an integer
         getline(inputTextFile, temp); //reads second line and puts it to temp
-        width = stoi(temp); //converts a string into an integer
+        this->width = stoi(temp); //converts a string into an integer
 
         grid = new char* [height];
         for(int i = 0; i < height; ++i){
@@ -67,9 +67,9 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
         for(int i = 0; i < height; ++i){
             getline(inputTextFile, temp);
             for(int j = 0; j < width; ++j){
-                grid[i][j] = temp[j]; //fills row with the corresponding column info
+                grid[i][j] = toupper(temp[j]); //fills row with the corresponding column info. Also changes lowercase x to X if needed
             }
-        }
+        }   
     }
     else{
         //try catch error
