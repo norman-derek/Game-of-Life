@@ -14,12 +14,14 @@ class Grid{
         Grid();
         ~Grid();
         Grid(int width, int height, double populationDensity);
-        char** createGrid(int width, int height, double populationDensity);
+        void createGrid(int width, int height, double populationDensity);
         void randomGrid();
         void manuallyCreateGrid();
-        bool placeCell(double populationDensity);
+        int getHeight();
+        int getWidth();
+        char** getGrid();
         void printArray();
-        virtual void searchGrid() = 0; //this is implemented elsewhere (classic, donut, mirror)
+        //virtual void searchGrid() = 0; //this is implemented elsewhere (classic, donut, mirror)
     private:
         char **grid;
         int width;
