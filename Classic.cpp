@@ -57,10 +57,17 @@ void Classic::searchGrid(){ //search the grid, checking each individual cell to 
     for(int i = 0; i < getHeight(); ++i){ //rows
         for(int j = 0; j < getWidth(); ++j){ //columns
             //Search each neighbor around (i,j)
-            if ((i == 0 && j == 0) || (i == 0 && j == getWidth() - 1) || (i == getHeight() - 1 && j == 0) || (i == getHeight() - 1 && j == getWidth() - 1)){ //checks if location is a corner
-                cout << "(" << i << ", " << j << ")" << ": Is a corner" << endl;
+            if (i == 0 && j == 0){ //checks if location is top left corner
+                cout << "(" << i << ", " << j << ")" << ": Is top left corner" << endl;
 
-            } else if ((i == 0)){ //checks if current location is on the top edge of grid
+            } else if (i == 0 && j == getWidth() - 1){ //checks if location is top right corner
+                cout << "(" << i << ", " << j << ")" << ": Is top right corner" << endl;
+            } else if (i == getHeight() - 1 && j == 0) { //checks if location is a bottom left corner
+                cout << "(" << i << ", " << j << ")" << ": Is bottom left corner" << endl;
+            } else if (i == getHeight() - 1 && j == getWidth() - 1){ //checks if location is bottom right corner
+                cout << "(" << i << ", " << j << ")" << ": Is bottom right corner" << endl;
+            }
+            else if ((i == 0)){ //checks if current location is on the top edge of grid
                 cout << "(" << i << ", " << j << ")" << ": Is a top edge" << endl;
 
             } else if (i == getHeight() - 1) { // checks if current location is on bottom edge of grid
