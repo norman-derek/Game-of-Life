@@ -16,8 +16,8 @@ Grid::~Grid(){ //Destructor
 }
 
 void Grid::createGrid(int width, int height, double populationDensity){ //method to create the grid
-    cout << "Width: " << width << endl;
     cout << "Height: " << height << endl;
+    cout << "Width: " << width << endl;
     cout << "Population Density: " << populationDensity << endl;
     this->height = height;
     this->width = width;

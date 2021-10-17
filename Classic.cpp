@@ -6,9 +6,9 @@ Classic::Classic(){
 }
 
 Classic::~Classic(){
-    //currGrid just points to the current grid so it is already being deleted in the deconstrctor of grid
+    //currGrid just points to the current grid so it is already being deleted in the deconstructor of grid
 
-    for(int i = 0; i < getHeight(); ++i){ //fix variable, should not be height
+    for(int i = 0; i < getHeight(); ++i){ 
         delete[] nextGrid[i];
     }
 
@@ -27,16 +27,18 @@ bool Classic::isAlive(int h, int w){ //check to see if a cell is alive
     return (currGrid[h][w] == 'X');
 }
 
-bool Classic::isStable(){
-    if(currGrid == nextGrid){
+bool Classic::isStable(int h, int w){
+    if(currGrid[h][w] == nextGrid[h][w]){
         return true;
     }
 
     return false;
 }
 
-bool Classic::isEmpty(){
-    int count = 0;
+bool Classic::isEmpty(int h, int w){
+    return(currGrid[h][w] == '-'); //this may work? should try a cout statement somewhere to check
+    
+    /*int count = 0;
     for(int i = 0; i < getHeight(); ++i){
         for(int j = 0; j < getWidth(); ++j){
             if(isAlive(i, j)){
@@ -49,7 +51,7 @@ bool Classic::isEmpty(){
         return false;
     } else {
         return true; 
-    }
+    }*/
 }
 
 void Classic::createNextGrid(){ //Creates the next grid and saves it to nextGrid
@@ -333,4 +335,3 @@ void Classic::printNextGrid(){
         cout << endl;
     } //prints out grid filled with populated spots
 }
-

@@ -19,8 +19,8 @@ class Classic: public Grid {                       //:public Grid{ //classic is 
         ~Classic();
 
         bool isAlive(int h, int w); //check to see if a grid is alive
-        bool isStable();
-        bool isEmpty();
+        bool isStable(int h, int w);
+        bool isEmpty(int h, int w);
         void searchGrid(); //searches grid and looks for alive locations
         void alive(int h, int w); //add a new 'X' to a cell
         void dead(int h, int w); //sets a cell to dead by changing 'X' to '-'
