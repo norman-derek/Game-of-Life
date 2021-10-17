@@ -19,6 +19,9 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
     cout << "Height: " << height << endl;
     cout << "Width: " << width << endl;
     cout << "Population Density: " << populationDensity << endl;
+    // cout << "Width: " << width << endl;
+    // cout << "Height: " << height << endl;
+    // cout << "Population Density: " << populationDensity << endl;
     this->height = height;
     this->width = width;
     this->grid = new char*[height];
@@ -81,6 +84,44 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
 
 char** Grid::getGrid(){ //returns the grid
     return grid;
+}
+
+void Grid::alive(int h, int w){ //set a cell to be alive
+    grid[h][w] = 'X';
+}
+
+void Grid::dead(int h, int w){ //sets a cell to be dead
+    grid[h][w] = '-';
+}
+
+bool Grid::isAlive(int h, int w){ //check to see if a cell is alive
+    return (grid[h][w] == 'X');
+}
+
+
+bool Grid::isStable(Grid* other){
+    for (int i = 0; i < height; ++i){
+        for(int j = 0; j < width; ++j){
+            if(grid[i][j] != other->grid[i][j]){
+                return false;
+            }
+        }
+    }
+    
+
+    return true;
+}
+
+bool Grid::isEmpty(){    
+    for(int i = 0; i < getHeight(); ++i){
+        for(int j = 0; j < getWidth(); ++j){
+            if(isAlive(i, j)){
+                return false;
+            }
+        }
+    }
+
+    return true; 
 }
 
 int Grid::getHeight(){ //returns the height of grid

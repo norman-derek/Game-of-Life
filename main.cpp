@@ -2,11 +2,11 @@
 
 int main(int argc, char** argv)
 {
-    // Simulation *sim = new Simulation();
-    // sim->runSimulation();
     Classic *test = new Classic();
     int input;
     int generation = 0;
+    Grid* grid = new Grid();
+    Grid* next = new Grid();
     
 
 
@@ -15,28 +15,33 @@ int main(int argc, char** argv)
 
 
     if (input == 1){
-        test->randomGrid(); //create a random grid
-        test->printArray();
+        grid->randomGrid(); //manually input information
+        *next = *grid;
+        cout << "GENERATION " << generation << endl;
+        grid->printArray();
 
-        
-        //cout << "is stable? "<< test->isStable() << endl;
-        //cout << "is empty? " << test->isEmpty() << endl;
-        test->searchGrid(); 
-        cout << "==========GENERATION " << generation <<  "===========" << endl;
-        test->printArray();
-        cout << "==========GENERATION " << generation + 1 <<  "===========" << endl;
-        test->printNextGrid();
+        while(generation < 5){
+        test->searchGrid(next);
+        cout << "GENERATION " << (generation + 1) << endl;
+        next->printArray();
         generation += 1;
+
+        }
         
     }
     else if(input == 2){
-        test->manuallyCreateGrid(); //manually input information
-        test->printArray();
-        test->searchGrid();
-        cout << "==========Generation 0===========" << endl;
-        test->printArray();
-        cout << "=========Generation 1===========" << endl;
-        test->printNextGrid();
+        grid->manuallyCreateGrid(); //manually input information
+        next = grid;
+        cout << "GENERATION " << generation << endl;
+        grid->printArray();
+
+        while(generation <= 5){
+        test->searchGrid(next);
+        cout << "GENERATION " << (generation + 1) << endl;
+        next->printArray();
+        generation += 2;
+        }
+        
     }
     else{
         cout << "Input the correct number, dumbass";
