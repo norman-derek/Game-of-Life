@@ -6,9 +6,8 @@ int main(int argc, char** argv)
     // sim->runSimulation();
     Classic *test = new Classic();
     int input;
-    int width;
-    int height;
-    double populationDensity;
+    int generation = 0;
+    
 
 
     cout << "Create Random Grid: Input '1'. Manually Create Grid: Input '2'" << endl;
@@ -17,12 +16,18 @@ int main(int argc, char** argv)
 
     if (input == 1){
         test->randomGrid(); //create a random grid
-        test->printArray(); //prints array
-        test->searchGrid(); 
-        cout << "==========Generation 0===========" << endl;
         test->printArray();
-        cout << "=========Generation 1===========" << endl;
+
+        
+        //cout << "is stable? "<< test->isStable() << endl;
+        //cout << "is empty? " << test->isEmpty() << endl;
+        test->searchGrid(); 
+        cout << "==========GENERATION " << generation <<  "===========" << endl;
+        test->printArray();
+        cout << "==========GENERATION " << generation + 1 <<  "===========" << endl;
         test->printNextGrid();
+        generation += 1;
+        
     }
     else if(input == 2){
         test->manuallyCreateGrid(); //manually input information
