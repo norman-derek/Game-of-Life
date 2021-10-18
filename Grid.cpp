@@ -129,8 +129,8 @@ bool Grid::isStable(Grid* other){
 }
 
 bool Grid::isEmpty(){    
-    for(int i = 0; i < getHeight(); ++i){
-        for(int j = 0; j < getWidth(); ++j){
+    for(int i = 0; i < height; ++i){
+        for(int j = 0; j < width; ++j){
             if(isAlive(i, j)){
                 return false;
             }

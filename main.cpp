@@ -6,7 +6,7 @@ int main(int argc, char** argv)
     int input;
     int generation = 0;
     Grid* grid = new Grid();
-    Grid* next = new Grid();
+    Grid* curr = new Grid();
     Grid* prev = new Grid();
 
 
@@ -17,27 +17,56 @@ int main(int argc, char** argv)
 
     if (input == 1){
         grid->randomGrid(); //manually input information
-        cout << "GENERATION " << generation << endl;
-        grid->printArray();
+        curr->copyGrid(grid);
+        cout << "GENERATION 0" << endl;
+        prev->copyGrid(grid);
+        prev->printArray();
+        cout << "GENERATION 1" << endl;
+        test->searchGrid(curr);
+        curr->printArray();
+        generation += 2;
 
-        while(generation < 5){
-        test->searchGrid(grid);
-        cout << "GENERATION " << (generation + 1) << endl;
-        grid->printArray();
-        generation += 1;
-
+        cout << "is stable? " << curr->isStable(prev) << endl;
+        while(!curr->isStable(prev) && !curr->isEmpty()){
+            // prev->copyGrid(curr);
+            // cout << "===========GENERATION " << generation << "==============" << endl;
+            // prev->printArray();
+            // test->searchGrid(curr);
+            // cout << "===========GENERATION " << (generation + 1) << "==============" << endl;
+            // curr->printArray();
+            // generation += 2;
+            //curr->copyGrid(grid);
+            //cout << "GENERATION " << generation << endl;
+            prev->copyGrid(curr);
+            //prev->printArray();
+            cout << "GENERATION " << (generation) << endl;
+            test->searchGrid(curr);
+            curr->printArray();
+            generation += 1;
         }
         
     }
     else if(input == 2){
         grid->manuallyCreateGrid(); //manually input information
-        next->copyGrid(grid);
+        curr->copyGrid(grid);
         cout << "GENERATION 0" << endl;
-        grid->printArray();
-
-        test->searchGrid(next);
+        prev->copyGrid(grid);
+        prev->printArray();
         cout << "GENERATION 1" << endl;
-        next->printArray();
+        test->searchGrid(curr);
+        curr->printArray();
+        generation += 2;
+
+        cout << "is stable? " << curr->isStable(prev) << endl;
+        while(!curr->isStable(prev)){
+            cout << "===========GENERATION " << generation << "==============" << endl;
+            prev->printArray();
+            test->searchGrid(grid);
+            cout << "===========GENERATION " << (generation + 1) << "==============" << endl;
+            curr->copyGrid(grid);
+            curr->printArray();
+            generation += 2;
+        }
         
     }
     else{
