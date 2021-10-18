@@ -108,5 +108,6 @@ int main(int argc, char** argv)
     }
 
     delete test;
+    delete dough;
     return 0;
 }

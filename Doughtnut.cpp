@@ -1,11 +1,9 @@
 #include "Doughnut.h"
 
 Doughnut::Doughnut(){
-
 }
 
 Doughnut::~Doughnut(){
-
 }
 
 void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individual cell to see what is alive and what isn't
@@ -16,7 +14,6 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
             for(int j = 0; j < grid->getWidth(); ++j){ //columns
                 //Search each neighbor around (i,j)
                 if (i == 0 && j == 0){ //checks if location is top left corner
-                    //cout << "(" << i << ", " << j << ")" << ": Is top left corner" << endl;
                     if(temp->isAlive(i, j + 1)){  //checks cell to the right of it
                         count += 1;
                     } 
@@ -35,12 +32,14 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if (temp->isAlive(i, grid->getWidth()-1)){ //checks same row, left column (far right)
                         count += 1;
                     }
-                    if (temp->isAlive(i-1, grid->getWidth()-1)){ //checks diagonally bottom left
+                    if (temp->isAlive(i+1, grid->getWidth()-1)){ //checks diagonally bottom left
                         count += 1;
                     }
                     if (temp->isAlive(grid->getHeight()-1, grid->getWidth()-1)){ //checks opposite diagonal
                         count += 1;
+
                     }
+                    
 
                     //cout << "count is " << count << endl;
                     if(count <= 1){
@@ -55,7 +54,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
 
                 } else if (i == 0 && j == grid->getWidth() - 1){ //checks if location is top right corner
                     //cout << "(" << i << ", " << j << ")" << ": Is top right corner" << endl;
-                    if(temp->isAlive(i + 1, j)){ //checks cell under it
+                    if (temp->isAlive(i + 1, j)){ //checks cell under it
                         count += 1;
                     } 
                     if (temp->isAlive(i + 1, j - 1)){ //checks cell diagonally bottom left of it
@@ -70,10 +69,10 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if (temp->isAlive(grid->getHeight() - 1, j-1)){ //checks bottom row, left column
                         count += 1;
                     }
-                    if (temp->isAlive(i, 0)){ //check same row, right column
+                    if (temp->isAlive(0, 0)){ //check same row, right column
                         count += 1;
                     }
-                    if (temp->isAlive(i-1, 0)){ //check row below, right column
+                    if (temp->isAlive(i+1, 0)){ //check row below, right column
                         count += 1;
                     }
                     if (temp->isAlive(grid->getHeight()-1, 0)){ //check opposite diagonal
@@ -101,16 +100,16 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if (temp->isAlive(i, j + 1)){ //checks cell to the right
                         count += 1;
                     }
-                    if (temp->isAlive(0, j)){ //checks first row, same column
+                    if (temp->isAlive(0, 0)){ //checks first row, same column
                         count += 1;
                     }
                     if (temp->isAlive(0, j+1)){ //checks first row, right column
                         count += 1;
                     }
-                    if (temp->isAlive(i, grid->getWidth()-1)){ //same row, left column
+                    if (temp->isAlive(grid->getHeight()-1, grid->getWidth()-1)){ //same row, left column
                         count += 1;
                     }
-                    if (temp->isAlive(i+1, grid->getWidth()-1)){ //check diagonally upper left
+                    if (temp->isAlive(i-1, grid->getWidth()-1)){ //check diagonally upper left
                         count += 1;
                     }
                     if (temp->isAlive(0, grid->getWidth()-1)){ //check diagonally lower left
@@ -182,7 +181,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if(temp->isAlive(i+1, j+1)){ //checks cell diagonally down right
                         count += 1;
                     }
-                    if(temp->isAlive(grid->getHeight()-1, j)){ //checks bottom row, same column
+                    /*if(temp->isAlive(grid->getHeight()-1, j)){ //checks bottom row, same column
                         count += 1;
                     } 
                     if(temp->isAlive(grid->getHeight()-1, j-1)){ //checks bottom row, column to the left
@@ -190,7 +189,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     } 
                     if(temp->isAlive(grid->getHeight()-1, j+1)){ //checks bottom row, column column to the right
                         count += 1;
-                    } 
+                    } */
 
                     if(count <= 1){
                         grid->dead(i, j);
@@ -218,7 +217,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if(temp->isAlive(i, j+1)){ //checks cell to the right
                         count += 1;
                     }
-                    if(temp->isAlive(0, j)){ //checks top row, same column
+                    /*if(temp->isAlive(0, j)){ //checks top row, same column
                         count += 1;
                     }
                     if(temp->isAlive(0, j-1)){ //checks top row, column to the left
@@ -226,7 +225,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     }
                     if(temp->isAlive(0, j+1)){ //checks top row, column to the right
                         count += 1;
-                    }
+                    }*/
 
                     if(count <= 1){
                         grid->dead(i, j);
@@ -255,7 +254,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if(temp->isAlive(i+1, j+1)){ //checks cell diagonally down right
                         count += 1;
                     }
-                    if(temp->isAlive(i, grid->getHeight() - 1)){ //checks cell to the left, same row
+                   /* if(temp->isAlive(i, grid->getHeight() - 1)){ //checks cell to the left, same row
                         count += 1;
                     }
                     if(temp->isAlive(i+1, grid->getHeight() - 1)){ //checks cell to the left, row above
@@ -263,7 +262,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     }
                     if(temp->isAlive(i-1, grid->getHeight() - 1)){ //checks cell to the left, row below
                         count += 1;
-                    }
+                    }*/
 
                     if(count <= 1){
                         grid->dead(i, j);
@@ -291,7 +290,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     if(temp->isAlive(i+1, j)){ // checks cell under 
                         count += 1;
                     }
-                    if(temp->isAlive(i, 0)){ //checks cell to the right, same row
+                   /* if(temp->isAlive(i, 0)){ //checks cell to the right, same row
                         count += 1;
                     }
                     if(temp->isAlive(i+1, 0)){ //checks cell to the right, row above
@@ -299,7 +298,7 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
                     }
                     if(temp->isAlive(i-1, 0)){ //checks cell to the right, row below
                         count += 1;
-                    }
+                    }*/
 
                     if(count <= 1){
                         grid->dead(i, j);
@@ -352,3 +351,4 @@ void Doughnut::searchGrid(Grid* grid){ //search the grid, checking each individu
             }
         }
 }
+
