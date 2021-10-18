@@ -6,7 +6,7 @@ Classic::Classic(){
 Classic::~Classic(){
 }
 
-void Classic::searchGrid(Grid* grid){ //search the grid, checking each individual cell to see what is alive and what isn't
+void Classic::searchGridClassic(Grid* grid){ //search the grid, checking each individual cell to see what is alive and what isn't
     int count = 0;
     Grid* temp = new Grid();
     temp->copyGrid(grid);
@@ -14,7 +14,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
             for(int j = 0; j < grid->getWidth(); ++j){ //columns
                 //Search each neighbor around (i,j)
                 if (i == 0 && j == 0){ //checks if location is top left corner
-                    //cout << "(" << i << ", " << j << ")" << ": Is top left corner" << endl;
                     if(temp->isAlive(i, j + 1)){  //checks cell to the right of it
                         count += 1;
                     } 
@@ -25,7 +24,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                         count += 1;
                     }
 
-                    //cout << "count is " << count << endl;
                     if(count <= 1){
                         grid->dead(i, j);
                     } else if (count == 3){
@@ -37,7 +35,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if (i == 0 && j == grid->getWidth() - 1){ //checks if location is top right corner
-                    //cout << "(" << i << ", " << j << ")" << ": Is top right corner" << endl;
                     if(temp->isAlive(i + 1, j)){ //checks cell under it
                         count += 1;
                     } 
@@ -59,7 +56,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if (i == grid->getHeight() - 1 && j == 0) { //checks if location is a bottom left corner
-                    //cout << "(" << i << ", " << j << ")" << ": Is bottom left corner" << endl;
                     if(temp->isAlive(i - 1, j)){ //checks cell above it
                         count += 1;
                     } 
@@ -81,7 +77,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if (i == grid->getHeight() - 1 && j == grid->getWidth() - 1){ //checks if location is bottom right corner
-                    //cout << "(" << i << ", " << j << ")" << ": Is bottom right corner" << endl;
                     if(temp->isAlive(i - 1, j)){ //checks cell above it
                         count += 1;
                     } 
@@ -103,7 +98,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
                 }
                 else if ((i == 0) && (j != 0 || j != grid->getWidth() - 1)){ //checks if current location is on the top edge of grid
-                    //cout << "(" << i << ", " << j << ")" << ": Is a top edge" << endl;
                     if(temp->isAlive(i, j-1)){ //checks cell to the left
                         count += 1;
                     }
@@ -131,7 +125,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if (i == grid->getHeight() - 1 && (j != 0 || j != grid->getWidth() - 1)) { // checks if current location is on bottom edge of grid
-                    //cout << "(" << i << ", " << j << ")" << ": Is a bottom edge" << endl;
                     if(temp->isAlive(i-1, j-1)){ //checks cell diagonally up left
                         count += 1;
                     }
@@ -148,7 +141,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                         count += 1;
                     }
 
-                    //cout << "count of bottom edge is " << count << endl;
 
                     if(count <= 1){
                         grid->dead(i, j);
@@ -161,7 +153,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if (j == 0 && (i != 0 || i != grid->getHeight() - 1)){ //checks if current location is on left edge of grid
-                    //cout << "(" << i << ", " << j << ")" << ": Is a left edge" << endl;
                     if(temp->isAlive(i-1, j)){ //checks cell above 
                         count += 1;
                     }
@@ -188,7 +179,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     
                     count = 0;
                 } else if (j == grid->getWidth() - 1 && (i != 0 || i != grid->getHeight() - 1)){ //checks if current location is on right edge of grid
-                    //cout << "(" << i << ", " << j << ")" << ": Is a right edge" << endl;
                     if(temp->isAlive(i-1, j-1)){ //checks cell diagonally up left
                         count += 1;
                     }
@@ -216,7 +206,6 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                     count = 0;
 
                 } else if ((i > 0) && (j > 0) && (i < grid->getHeight() - 1) && (j < grid->getWidth() - 1)) { //checks if not in corner and not on edge
-                    //cout << "(" << i << ", " << j << ")" << ": Can check all neighbors" << endl;
                     if(temp->isAlive(i-1, j-1)){ //checks cell diagonally up left
                         count += 1;
                     }
@@ -255,5 +244,7 @@ void Classic::searchGrid(Grid* grid){ //search the grid, checking each individua
                 }
             }
         }
+
+    delete temp;
 }
 

@@ -40,9 +40,9 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
 
 void Grid::randomGrid(){
     srand(time(NULL));
-    width = rand() % 10 + 1; // random width
-    height = rand() % 10 + 1; // random height
-    populationDensity = (rand() % 10) * 0.1; //random population Density
+    width = (rand() % 10 + 1) + 1; // random width, add 1 to avoid a grid with width of 1
+    height = (rand() % 10 + 1) + 1; // random height, add 1 to avoid grid with height of 1
+    populationDensity = (rand() % 10 + 1) * 0.1; //random population Density
     createGrid(width, height, populationDensity);
 }
 

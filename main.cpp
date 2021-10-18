@@ -1,10 +1,12 @@
 #include "Classic.h"
 #include "Doughnut.h"
+#include "Mirror.h"
 
 int main(int argc, char** argv)
 {
-    Classic *test = new Classic();
-    Doughnut *dough = new Doughnut();
+    Classic *c = new Classic();
+    Doughnut *d = new Doughnut();
+    Mirror *m = new Mirror();
     int input;
     int generation = 0;
     Grid* grid = new Grid();
@@ -28,35 +30,65 @@ int main(int argc, char** argv)
             prev->copyGrid(grid);
             prev->printArray();
             cout << "GENERATION 1" << endl;
-            test->searchGrid(curr);
             curr->printArray();
-            generation += 2;
+            cout << "GENERATION 2" << endl;
+            c->searchGridClassic(curr);
+            curr->printArray();
+
+            generation += 3;
         
             while(!curr->isStable(prev) && !curr->isEmpty()){
                 prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
                 cout << "GENERATION " << (generation) << endl;
-                test->searchGrid(curr); //computes next grid from the current grid
+                c->searchGridClassic(curr); //computes next grid from the current grid
                 curr->printArray(); //prints the next grid
                 generation += 1; //increments generation
             }
-        }
-        else if(mode == 2){
+
+        } else if (mode == 2){
             curr->copyGrid(grid);
             cout << "GENERATION 0" << endl;
             prev->copyGrid(grid);
             prev->printArray();
             cout << "GENERATION 1" << endl;
-            dough->searchGrid(curr);
             curr->printArray();
-            generation += 2;
+            cout << "GENERATION 2" << endl;
+            d->searchGridDoughnut(curr);
+            curr->printArray();
+
+            generation += 3;
         
             while(!curr->isStable(prev) && !curr->isEmpty()){
                 prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
                 cout << "GENERATION " << (generation) << endl;
-                dough->searchGrid(curr); //computes next grid from the current grid
+                d->searchGridDoughnut(curr); //computes next grid from the current grid
                 curr->printArray(); //prints the next grid
                 generation += 1; //increments generation
             }
+
+        } else if (mode == 3){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            curr->printArray();
+            cout << "GENERATION 2" << endl;
+            m->searchGridMirror(curr);
+            curr->printArray();
+
+            generation += 3;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                m->searchGridMirror(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
+
+        }else {
+            cout << "INVALID CHOICE" << endl;
         }
         
     }
@@ -71,35 +103,65 @@ int main(int argc, char** argv)
             prev->copyGrid(grid);
             prev->printArray();
             cout << "GENERATION 1" << endl;
-            test->searchGrid(curr);
             curr->printArray();
-            generation += 2;
+            cout << "GENERATION 2" << endl;
+            c->searchGridClassic(curr);
+            curr->printArray();
+
+            generation += 3;
         
             while(!curr->isStable(prev) && !curr->isEmpty()){
                 prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
                 cout << "GENERATION " << (generation) << endl;
-                test->searchGrid(curr); //computes next grid from the current grid
+                c->searchGridClassic(curr); //computes next grid from the current grid
                 curr->printArray(); //prints the next grid
                 generation += 1; //increments generation
             }
-        }
-        else if(mode == 2){
+
+        } else if (mode == 2){
             curr->copyGrid(grid);
             cout << "GENERATION 0" << endl;
             prev->copyGrid(grid);
             prev->printArray();
             cout << "GENERATION 1" << endl;
-            dough->searchGrid(curr);
             curr->printArray();
-            generation += 2;
+            cout << "GENERATION 2" << endl;
+            d->searchGridDoughnut(curr);
+            curr->printArray();
+
+            generation += 3;
         
             while(!curr->isStable(prev) && !curr->isEmpty()){
                 prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
                 cout << "GENERATION " << (generation) << endl;
-                dough->searchGrid(curr); //computes next grid from the current grid
+                d->searchGridDoughnut(curr); //computes next grid from the current grid
                 curr->printArray(); //prints the next grid
                 generation += 1; //increments generation
             }
+
+        } else if (mode == 3){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            curr->printArray();
+            cout << "GENERATION 2" << endl;
+            m->searchGridMirror(curr);
+            curr->printArray();
+
+            generation += 3;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                m->searchGridMirror(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
+
+        }else {
+            cout << "INVALID CHOICE" << endl;
         }
         
     }
@@ -107,7 +169,11 @@ int main(int argc, char** argv)
         cout << "Input the correct number, dumbass";
     }
 
-    delete test;
-    delete dough;
+    delete c;
+    delete d;
+    delete m;
+    delete curr;
+    delete prev;
+    delete grid;
     return 0;
 }

@@ -11,7 +11,7 @@ class Classic {                       //:public Grid{ //classic is a subclass of
     public:
         Classic();
         ~Classic();
-        void searchGrid(Grid* grid); //searches grid and looks for alive locations
+        void searchGridClassic(Grid* grid); //searches grid and looks for alive locations
 
 };
 
