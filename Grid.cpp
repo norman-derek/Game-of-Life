@@ -19,9 +19,6 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
     cout << "Height: " << height << endl;
     cout << "Width: " << width << endl;
     cout << "Population Density: " << populationDensity << endl;
-    // cout << "Width: " << width << endl;
-    // cout << "Height: " << height << endl;
-    // cout << "Population Density: " << populationDensity << endl;
     this->height = height;
     this->width = width;
     this->grid = new char*[height];
@@ -96,6 +93,25 @@ void Grid::dead(int h, int w){ //sets a cell to be dead
 
 bool Grid::isAlive(int h, int w){ //check to see if a cell is alive
     return (grid[h][w] == 'X');
+}
+
+void Grid::copyGrid(Grid* other){
+    this->height = other->getHeight();
+    this->width = other->getWidth();
+    this->grid = new char*[other->getHeight()];
+    for(int i = 0; i < other->getHeight(); ++i){
+        grid[i] = new char[other->getWidth()];
+    }
+
+    for(int i = 0; i < height; ++i){
+        for (int j = 0; j < width; ++j){
+            if(other->isAlive(i, j)){
+                grid[i][j] = 'X';
+            } else {
+                grid[i][j] = '-';
+            }
+        }
+    }
 }
 
 

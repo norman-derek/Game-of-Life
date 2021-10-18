@@ -7,7 +7,8 @@ int main(int argc, char** argv)
     int generation = 0;
     Grid* grid = new Grid();
     Grid* next = new Grid();
-    
+    Grid* prev = new Grid();
+
 
 
     cout << "Create Random Grid: Input '1'. Manually Create Grid: Input '2'" << endl;
@@ -16,14 +17,13 @@ int main(int argc, char** argv)
 
     if (input == 1){
         grid->randomGrid(); //manually input information
-        *next = *grid;
         cout << "GENERATION " << generation << endl;
         grid->printArray();
 
         while(generation < 5){
-        test->searchGrid(next);
+        test->searchGrid(grid);
         cout << "GENERATION " << (generation + 1) << endl;
-        next->printArray();
+        grid->printArray();
         generation += 1;
 
         }
@@ -31,16 +31,13 @@ int main(int argc, char** argv)
     }
     else if(input == 2){
         grid->manuallyCreateGrid(); //manually input information
-        next = grid;
-        cout << "GENERATION " << generation << endl;
+        next->copyGrid(grid);
+        cout << "GENERATION 0" << endl;
         grid->printArray();
 
-        while(generation <= 5){
         test->searchGrid(next);
-        cout << "GENERATION " << (generation + 1) << endl;
+        cout << "GENERATION 1" << endl;
         next->printArray();
-        generation += 2;
-        }
         
     }
     else{
