@@ -17,41 +17,51 @@ int main(int argc, char** argv)
 
     if (input == 1){
         grid->randomGrid(); //manually input information
-        curr->copyGrid(grid);
-        cout << "GENERATION 0" << endl;
-        prev->copyGrid(grid);
-        prev->printArray();
-        cout << "GENERATION 1" << endl;
-        test->searchGrid(curr);
-        curr->printArray();
-        generation += 2;
-    
-        while(!curr->isStable(prev) && !curr->isEmpty()){
-            prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
-            cout << "GENERATION " << (generation) << endl;
-            test->searchGrid(curr); //computes next grid from the current grid
-            curr->printArray(); //prints the next grid
-            generation += 1; //increments generation
+        cout << "Choose Mode: Classic '1'. Doughnut '2'. Mirror '3'." << endl;
+        int mode;
+        cin >> mode;
+        if(mode == 1){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            test->searchGrid(curr);
+            curr->printArray();
+            generation += 2;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                test->searchGrid(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
         }
         
     }
     else if(input == 2){
         grid->manuallyCreateGrid(); //manually input information
-        curr->copyGrid(grid);
-        cout << "GENERATION 0" << endl;
-        prev->copyGrid(grid);
-        prev->printArray();
-        cout << "GENERATION 1" << endl;
-        test->searchGrid(curr);
-        curr->printArray();
-        generation += 2;
-    
-        while(!curr->isStable(prev) && !curr->isEmpty()){
-            prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
-            cout << "GENERATION " << (generation) << endl;
-            test->searchGrid(curr); //computes next grid from the current grid
-            curr->printArray(); //prints the next grid
-            generation += 1; //increments generation
+        cout << "Choose Mode: Classic '1'. Doughnut '2'. Mirror '3'." << endl;
+        int mode;
+        cin >> mode;
+        if(mode == 1){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            test->searchGrid(curr);
+            curr->printArray();
+            generation += 2;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                test->searchGrid(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
         }
         
     }
