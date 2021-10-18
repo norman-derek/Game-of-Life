@@ -25,24 +25,13 @@ int main(int argc, char** argv)
         test->searchGrid(curr);
         curr->printArray();
         generation += 2;
-
-        cout << "is stable? " << curr->isStable(prev) << endl;
+    
         while(!curr->isStable(prev) && !curr->isEmpty()){
-            // prev->copyGrid(curr);
-            // cout << "===========GENERATION " << generation << "==============" << endl;
-            // prev->printArray();
-            // test->searchGrid(curr);
-            // cout << "===========GENERATION " << (generation + 1) << "==============" << endl;
-            // curr->printArray();
-            // generation += 2;
-            //curr->copyGrid(grid);
-            //cout << "GENERATION " << generation << endl;
-            prev->copyGrid(curr);
-            //prev->printArray();
+            prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
             cout << "GENERATION " << (generation) << endl;
-            test->searchGrid(curr);
-            curr->printArray();
-            generation += 1;
+            test->searchGrid(curr); //computes next grid from the current grid
+            curr->printArray(); //prints the next grid
+            generation += 1; //increments generation
         }
         
     }
@@ -56,16 +45,13 @@ int main(int argc, char** argv)
         test->searchGrid(curr);
         curr->printArray();
         generation += 2;
-
-        cout << "is stable? " << curr->isStable(prev) << endl;
-        while(!curr->isStable(prev)){
-            cout << "===========GENERATION " << generation << "==============" << endl;
-            prev->printArray();
-            test->searchGrid(grid);
-            cout << "===========GENERATION " << (generation + 1) << "==============" << endl;
-            curr->copyGrid(grid);
-            curr->printArray();
-            generation += 2;
+    
+        while(!curr->isStable(prev) && !curr->isEmpty()){
+            prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+            cout << "GENERATION " << (generation) << endl;
+            test->searchGrid(curr); //computes next grid from the current grid
+            curr->printArray(); //prints the next grid
+            generation += 1; //increments generation
         }
         
     }
