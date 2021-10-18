@@ -1,8 +1,10 @@
 #include "Classic.h"
+#include "Doughnut.h"
 
 int main(int argc, char** argv)
 {
     Classic *test = new Classic();
+    Doughnut *dough = new Doughnut();
     int input;
     int generation = 0;
     Grid* grid = new Grid();
@@ -38,6 +40,24 @@ int main(int argc, char** argv)
                 generation += 1; //increments generation
             }
         }
+        else if(mode == 2){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            dough->searchGrid(curr);
+            curr->printArray();
+            generation += 2;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                dough->searchGrid(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
+        }
         
     }
     else if(input == 2){
@@ -59,6 +79,24 @@ int main(int argc, char** argv)
                 prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
                 cout << "GENERATION " << (generation) << endl;
                 test->searchGrid(curr); //computes next grid from the current grid
+                curr->printArray(); //prints the next grid
+                generation += 1; //increments generation
+            }
+        }
+        else if(mode == 2){
+            curr->copyGrid(grid);
+            cout << "GENERATION 0" << endl;
+            prev->copyGrid(grid);
+            prev->printArray();
+            cout << "GENERATION 1" << endl;
+            dough->searchGrid(curr);
+            curr->printArray();
+            generation += 2;
+        
+            while(!curr->isStable(prev) && !curr->isEmpty()){
+                prev->copyGrid(curr); //sets previous to curr in order to check isStable in loop
+                cout << "GENERATION " << (generation) << endl;
+                dough->searchGrid(curr); //computes next grid from the current grid
                 curr->printArray(); //prints the next grid
                 generation += 1; //increments generation
             }
