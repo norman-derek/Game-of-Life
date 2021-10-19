@@ -1,3 +1,11 @@
+/* 
+Derek Norman, Michael Woodward
+2364922, 
+norman@chapman.edu, 
+CPSC-350-03, 
+Assignment 3
+*/
+
 #ifndef DOUGHNUT_H
 #define DOUGHNUT_H
 

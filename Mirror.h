@@ -1,3 +1,11 @@
+/* 
+Derek Norman, Michael Woodward
+2364922, 
+norman@chapman.edu, 
+CPSC-350-03, 
+Assignment 3
+*/
+
 #ifndef MIRROR_H
 #define MIRROR_H
 

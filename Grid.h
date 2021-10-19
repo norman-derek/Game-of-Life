@@ -1,3 +1,11 @@
+/* 
+Derek Norman, Michael Woodward
+2364922, 
+norman@chapman.edu, 
+CPSC-350-03, 
+Assignment 3
+*/
+
 #ifndef GRID_H
 #define GRID_H
 
