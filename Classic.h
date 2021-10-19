@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Classic {                       //:public Grid{ //classic is a subclass of grid
+class Classic {                     
     public:
         Classic();
         ~Classic();
