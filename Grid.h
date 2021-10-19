@@ -28,6 +28,7 @@ class Grid{
         void copyGrid(Grid* grid);
         void alive(int h, int w); //add a new 'X' to a cell
         void dead(int h, int w); //sets a cell to dead by changing 'X' to '-'
+        char loc(int h, int w); //returns the char at a location
         //virtual void searchGrid() = 0; //this is implemented elsewhere (classic, donut, mirror)
     private:
         char **grid;

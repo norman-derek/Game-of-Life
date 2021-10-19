@@ -48,9 +48,21 @@ void Grid::randomGrid(){
 
 void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful?)
 
+    cout << "Please provide file path" << endl;
+    string filePath;
+    cin >> filePath;
+    if(filePath.length() < 4) { //checks if file name length is 3 or less which is not possible with .txt extension
+        cout << "please use a valid file name with .txt" << endl;
+        manuallyCreateGrid(); //recalls function so user can input correct file
+    }
+    else if(filePath.substr(filePath.length() - 4) != ".txt"){ //check if file has .txt extension
+        cout << "please input a .txt file for the input" << endl;
 
+        manuallyCreateGrid();
+    }
+    
     ifstream inputTextFile; //you're doing great! i'm proud :D
-    inputTextFile.open("input.txt", ios::out);
+    inputTextFile.open(filePath, ios::out);
     if (inputTextFile.is_open()){
         string temp;
         getline(inputTextFile, temp); //reads first line and puts it to temp
@@ -146,6 +158,12 @@ int Grid::getHeight(){ //returns the height of grid
 
 int Grid::getWidth(){ //returns the width of grid
     return width;
+}
+
+char Grid::loc(int h, int w){ //returns char at given location
+    char c;
+    c = grid[h][w];
+    return c;
 }
 
 void Grid::printArray(){
