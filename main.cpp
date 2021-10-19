@@ -631,6 +631,10 @@ int main(int argc, char** argv)
     }
     
 
+    cout << "Press ENTER to exit program." << endl;
+    cin.ignore();
+    cin.ignore();
+
     delete c;
     delete d;
     delete m;
