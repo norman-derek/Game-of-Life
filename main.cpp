@@ -1,3 +1,20 @@
+/*
+1)  
+    a) Derek Norman, Michael Woodward
+    b) 2364922, 2340070
+    c) norman@chapman.edu, mwoodward@chapman.edu
+    d) CPSC-350-03, CPSC-350-02
+    e) Assignment 3
+2)
+    Main method
+3)
+    a) int main
+        - run everything!
+        - neturns 0
+        - takes in main parameters
+        - N/A
+*/
+
 #include "Classic.h"
 #include "Doughnut.h"
 #include "Mirror.h"
