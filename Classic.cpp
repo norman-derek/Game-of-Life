@@ -6,6 +6,10 @@ Classic::Classic(){
 Classic::~Classic(){
 }
 
+/*
+* This method is called searchGridClassic which searches each spot on a grid and updates the spot according to classic game of life rules 
+* This method takes a parameter of Grid* which represents the grid to search and update
+*/
 void Classic::searchGridClassic(Grid* grid){ //search the grid, checking each individual cell to see what is alive and what isn't
     int count = 0;
     Grid* temp = new Grid();

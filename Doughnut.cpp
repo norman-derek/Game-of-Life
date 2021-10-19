@@ -6,6 +6,10 @@ Doughnut::Doughnut(){
 Doughnut::~Doughnut(){
 }
 
+/*
+* This method is called searchGridDoughnut which searches each spot on a grid and updates the spot according to doughnut game of life rules 
+* This method takes a parameter of Grid* which represents the grid to search and update
+*/
 void Doughnut::searchGridDoughnut(Grid* grid){ //search the grid, checking each individual cell to see what is alive and what isn't
     int count = 0;
     Grid* temp = new Grid();

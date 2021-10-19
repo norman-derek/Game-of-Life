@@ -15,6 +15,10 @@ Grid::~Grid(){ //Destructor
     delete[] grid;
 }
 
+/*
+* This method is called createGrid and it creates a grid with given width, height, and populationDensity.
+* This method has three parameters. Width which is the width of the grid. Height which is hieght of grid. populationDensity which is how filled the grid will be with 'alive' cells.
+*/
 void Grid::createGrid(int width, int height, double populationDensity){ //method to create the grid
     cout << "Height: " << height << endl;
     cout << "Width: " << width << endl;
@@ -38,14 +42,20 @@ void Grid::createGrid(int width, int height, double populationDensity){ //method
 
 } 
 
+/*
+*This method is called randomGrid and it generates random parameters for a grid
+*/
 void Grid::randomGrid(){
     srand(time(NULL));
     width = (rand() % 10 + 1) + 1; // random width, add 1 to avoid a grid with width of 1
     height = (rand() % 10 + 1) + 1; // random height, add 1 to avoid grid with height of 1
     populationDensity = (rand() % 10 + 1) * 0.1; //random population Density
-    createGrid(width, height, populationDensity);
+    createGrid(width, height, populationDensity); //creates grid with the generated paramters
 }
 
+/*
+* This method is called manuallyCreateGrid, it takes an input txt file which has a grid on it and converts it into a grid object
+*/
 void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful?)
 
     cout << "Please provide file path" << endl;
@@ -91,22 +101,43 @@ void Grid::manuallyCreateGrid(){ //method to manually input data (is this useful
     inputTextFile.close();
 }
 
+/*
+* This method is called getGrid
+* This method returns the grid 
+*/
 char** Grid::getGrid(){ //returns the grid
     return grid;
 }
 
+/*
+* This method is called alive and changes a location on a grid to be 'alive'
+* This method has two parameters h and w. h is the row, and w is the col.
+*/
 void Grid::alive(int h, int w){ //set a cell to be alive
     grid[h][w] = 'X';
 }
 
+/*
+* This method is called dead and changes the cell at the location to 'dead'
+* This method has two parameters h and w. h is the row, and w is the col which corresponds with a location on the grid.
+*/
 void Grid::dead(int h, int w){ //sets a cell to be dead
     grid[h][w] = '-';
 }
 
+/*
+* This method is called isAlive and returns whether or not a location on the grid is alive or not
+* This method has two parameters h and w. h is the row, and w is the col which corresponds with a location on the grid.
+* This method returns a bool indicating if a location on the grid is alive or not
+*/
 bool Grid::isAlive(int h, int w){ //check to see if a cell is alive
     return (grid[h][w] == 'X');
 }
 
+/*
+* This method is called copyGrid it copys a grid to the current grid
+* This method has one parameter called other which is a grid object. 
+*/
 void Grid::copyGrid(Grid* other){
     this->height = other->getHeight();
     this->width = other->getWidth();
@@ -126,7 +157,11 @@ void Grid::copyGrid(Grid* other){
     }
 }
 
-
+/*
+* This method is called isStable and tells whether or not a grid is equal to another grid
+* This method takes a single paramter of a Grid* and checks to see if it equal to current grid.
+* This method returns a bool indicating if a grid is equal to another grid or not
+*/
 bool Grid::isStable(Grid* other){
     for (int i = 0; i < height; ++i){
         for(int j = 0; j < width; ++j){
@@ -140,6 +175,10 @@ bool Grid::isStable(Grid* other){
     return true;
 }
 
+/*
+* This method is called isEmpty and checks if a grid is empty (no alive cells in grid) or not
+* This method returns a bool indicating if the grid is empty (has no alive cells)
+*/
 bool Grid::isEmpty(){    
     for(int i = 0; i < height; ++i){
         for(int j = 0; j < width; ++j){
@@ -152,20 +191,36 @@ bool Grid::isEmpty(){
     return true; 
 }
 
+/*
+* This method is called getHeight and returns the hieght of grid
+* This method returns an int indicating the hieght of the grid
+*/
 int Grid::getHeight(){ //returns the height of grid
     return height;
 }
 
+/*
+* This method is called getWidth
+* This method returns an int indicating the width of the grid
+*/
 int Grid::getWidth(){ //returns the width of grid
     return width;
 }
 
+/*
+* This method is called loc
+* This method takes two parameters h and w. h represents the row, w represents the col.
+* This method returns a char indicating the char at a given location
+*/
 char Grid::loc(int h, int w){ //returns char at given location
     char c;
     c = grid[h][w];
     return c;
 }
 
+/*
+* this method is called printArray and prints the grid out to a readable form
+*/
 void Grid::printArray(){
     for (int i = 0; i < height; ++i){
         for (int j = 0; j < width; ++j){

@@ -23,4 +23,4 @@
 5)  To compile:
         make all
     To run:
-    ./assignment3.out
+        ./assignment3.out
